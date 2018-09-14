@@ -6,7 +6,7 @@ target 'Babysitter' do
   use_frameworks!
 
   # Pods for Babysitter
-  pod 'Font-Awesome-Swift', :git => 'https://github.com/Vaberer/Font-Awesome-Swift', :branch => 'swift-3'
+  pod 'Font-Awesome-Swift'#, :git => 'https://github.com/Vaberer/Font-Awesome-Swift', :branch => 'swift-3'
   pod 'FSCalendar'
   
   target 'BabysitterTests' do
