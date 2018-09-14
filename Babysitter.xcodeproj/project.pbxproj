@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05A6670E1B7383786F4309F5 /* Pods_BabysitterUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086A4576F1E299EFF192A772 /* Pods_BabysitterUITests.framework */; };
 		115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */; };
 		115FFEE1214C47EF00FDB8B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEE0214C47EF00FDB8B0 /* ViewController.swift */; };
 		115FFEE4214C47EF00FDB8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE2214C47EF00FDB8B0 /* Main.storyboard */; };
@@ -14,6 +15,10 @@
 		115FFEE9214C47F000FDB8B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE7214C47F000FDB8B0 /* LaunchScreen.storyboard */; };
 		115FFEF4214C47F000FDB8B0 /* BabysitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEF3214C47F000FDB8B0 /* BabysitterTests.swift */; };
 		115FFEFF214C47F000FDB8B0 /* BabysitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEFE214C47F000FDB8B0 /* BabysitterUITests.swift */; };
+		115FFF0E214C4C8900FDB8B0 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF0D214C4C8900FDB8B0 /* CalendarViewController.swift */; };
+		115FFF10214C4C9B00FDB8B0 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */; };
+		B54BE72AEE0CAFFC18CDA400 /* Pods_BabysitterTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DF7CEE682BE9CC0ECAABBE /* Pods_BabysitterTests.framework */; };
+		DEE5BAEBF121B680CF40E984 /* Pods_Babysitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D01549C7A028C973024ADE2C /* Pods_Babysitter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		086A4576F1E299EFF192A772 /* Pods_BabysitterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabysitterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEDB214C47EF00FDB8B0 /* Babysitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babysitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115FFEE0214C47EF00FDB8B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -47,6 +53,16 @@
 		115FFEFA214C47F000FDB8B0 /* BabysitterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BabysitterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEFE214C47F000FDB8B0 /* BabysitterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabysitterUITests.swift; sourceTree = "<group>"; };
 		115FFF00214C47F000FDB8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		115FFF0D214C4C8900FDB8B0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		34FE6BEBE1FDB77C250957A9 /* Pods-BabysitterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabysitterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabysitterUITests/Pods-BabysitterUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		416D6C4140D3B0922734BD0B /* Pods-Babysitter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babysitter.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Babysitter/Pods-Babysitter.debug.xcconfig"; sourceTree = "<group>"; };
+		5A02FA3BB30C9A082D4A0202 /* Pods-BabysitterUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabysitterUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabysitterUITests/Pods-BabysitterUITests.release.xcconfig"; sourceTree = "<group>"; };
+		6870A3EB851073A6D53E9BBB /* Pods-BabysitterTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabysitterTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BabysitterTests/Pods-BabysitterTests.release.xcconfig"; sourceTree = "<group>"; };
+		8969E5278A9AD92B3A90C8D1 /* Pods-Babysitter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Babysitter.release.xcconfig"; path = "Pods/Target Support Files/Pods-Babysitter/Pods-Babysitter.release.xcconfig"; sourceTree = "<group>"; };
+		D01549C7A028C973024ADE2C /* Pods_Babysitter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Babysitter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D6DF7CEE682BE9CC0ECAABBE /* Pods_BabysitterTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabysitterTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE11DB511F04C567F65338A7 /* Pods-BabysitterTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabysitterTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabysitterTests/Pods-BabysitterTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEE5BAEBF121B680CF40E984 /* Pods_Babysitter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B54BE72AEE0CAFFC18CDA400 /* Pods_BabysitterTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05A6670E1B7383786F4309F5 /* Pods_BabysitterUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +100,8 @@
 				115FFEF2214C47F000FDB8B0 /* BabysitterTests */,
 				115FFEFD214C47F000FDB8B0 /* BabysitterUITests */,
 				115FFEDC214C47EF00FDB8B0 /* Products */,
+				40EFD5DFB6927736E8BED185 /* Pods */,
+				4922D2D24CBCC1E2FEB6453C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +118,7 @@
 		115FFEDD214C47EF00FDB8B0 /* Babysitter */ = {
 			isa = PBXGroup;
 			children = (
+				115FFF0C214C4C7300FDB8B0 /* Calendar */,
 				115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */,
 				115FFEE0214C47EF00FDB8B0 /* ViewController.swift */,
 				115FFEE2214C47EF00FDB8B0 /* Main.storyboard */,
@@ -125,6 +147,38 @@
 			path = BabysitterUITests;
 			sourceTree = "<group>";
 		};
+		115FFF0C214C4C7300FDB8B0 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				115FFF0D214C4C8900FDB8B0 /* CalendarViewController.swift */,
+				115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		40EFD5DFB6927736E8BED185 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				416D6C4140D3B0922734BD0B /* Pods-Babysitter.debug.xcconfig */,
+				8969E5278A9AD92B3A90C8D1 /* Pods-Babysitter.release.xcconfig */,
+				DE11DB511F04C567F65338A7 /* Pods-BabysitterTests.debug.xcconfig */,
+				6870A3EB851073A6D53E9BBB /* Pods-BabysitterTests.release.xcconfig */,
+				34FE6BEBE1FDB77C250957A9 /* Pods-BabysitterUITests.debug.xcconfig */,
+				5A02FA3BB30C9A082D4A0202 /* Pods-BabysitterUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4922D2D24CBCC1E2FEB6453C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D01549C7A028C973024ADE2C /* Pods_Babysitter.framework */,
+				D6DF7CEE682BE9CC0ECAABBE /* Pods_BabysitterTests.framework */,
+				086A4576F1E299EFF192A772 /* Pods_BabysitterUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 115FFF03214C47F000FDB8B0 /* Build configuration list for PBXNativeTarget "Babysitter" */;
 			buildPhases = (
+				7ED88985F46C2DE7CF455BE0 /* [CP] Check Pods Manifest.lock */,
 				115FFED7214C47EF00FDB8B0 /* Sources */,
 				115FFED8214C47EF00FDB8B0 /* Frameworks */,
 				115FFED9214C47EF00FDB8B0 /* Resources */,
+				1728674A395ABBF1FBDEB450 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 115FFF06214C47F000FDB8B0 /* Build configuration list for PBXNativeTarget "BabysitterTests" */;
 			buildPhases = (
+				3F721C26E95170423C22B097 /* [CP] Check Pods Manifest.lock */,
 				115FFEEB214C47F000FDB8B0 /* Sources */,
 				115FFEEC214C47F000FDB8B0 /* Frameworks */,
 				115FFEED214C47F000FDB8B0 /* Resources */,
@@ -167,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 115FFF09214C47F000FDB8B0 /* Build configuration list for PBXNativeTarget "BabysitterUITests" */;
 			buildPhases = (
+				E8478C727BF29085E8A0BDD5 /* [CP] Check Pods Manifest.lock */,
 				115FFEF6214C47F000FDB8B0 /* Sources */,
 				115FFEF7214C47F000FDB8B0 /* Frameworks */,
 				115FFEF8214C47F000FDB8B0 /* Resources */,
@@ -251,11 +309,90 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1728674A395ABBF1FBDEB450 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Babysitter/Pods-Babysitter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FSCalendar/FSCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Babysitter/Pods-Babysitter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F721C26E95170423C22B097 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabysitterTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ED88985F46C2DE7CF455BE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Babysitter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E8478C727BF29085E8A0BDD5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BabysitterUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		115FFED7214C47EF00FDB8B0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				115FFF10214C4C9B00FDB8B0 /* CalendarViewModel.swift in Sources */,
+				115FFF0E214C4C8900FDB8B0 /* CalendarViewController.swift in Sources */,
 				115FFEE1214C47EF00FDB8B0 /* ViewController.swift in Sources */,
 				115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */,
 			);
@@ -428,14 +565,12 @@
 		};
 		115FFF04214C47F000FDB8B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 416D6C4140D3B0922734BD0B /* Pods-Babysitter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -445,14 +580,12 @@
 		};
 		115FFF05214C47F000FDB8B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8969E5278A9AD92B3A90C8D1 /* Pods-Babysitter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -462,16 +595,13 @@
 		};
 		115FFF07214C47F000FDB8B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE11DB511F04C567F65338A7 /* Pods-BabysitterTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -482,16 +612,13 @@
 		};
 		115FFF08214C47F000FDB8B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6870A3EB851073A6D53E9BBB /* Pods-BabysitterTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -502,15 +629,12 @@
 		};
 		115FFF0A214C47F000FDB8B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34FE6BEBE1FDB77C250957A9 /* Pods-BabysitterUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -521,15 +645,12 @@
 		};
 		115FFF0B214C47F000FDB8B0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A02FA3BB30C9A082D4A0202 /* Pods-BabysitterUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

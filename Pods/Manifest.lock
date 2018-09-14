@@ -1,0 +1,29 @@
+PODS:
+  - Font-Awesome-Swift (1.6.4)
+  - FSCalendar (2.7.9)
+
+DEPENDENCIES:
+  - Font-Awesome-Swift (from `https://github.com/Vaberer/Font-Awesome-Swift`, branch `swift-3`)
+  - FSCalendar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FSCalendar
+
+EXTERNAL SOURCES:
+  Font-Awesome-Swift:
+    :branch: swift-3
+    :git: https://github.com/Vaberer/Font-Awesome-Swift
+
+CHECKOUT OPTIONS:
+  Font-Awesome-Swift:
+    :commit: a1fa6a2529e0d4fe2f0cc735f6d907612e1b7535
+    :git: https://github.com/Vaberer/Font-Awesome-Swift
+
+SPEC CHECKSUMS:
+  Font-Awesome-Swift: 4820aea879741d76968a89653715b375ec0cf99e
+  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+
+PODFILE CHECKSUM: b91338bc80dae2285df8567664032e9c5745ef2d
+
+COCOAPODS: 1.5.3
