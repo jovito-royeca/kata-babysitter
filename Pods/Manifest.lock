@@ -1,20 +1,24 @@
 PODS:
   - Font-Awesome-Swift (1.7.2)
-  - FSCalendar (2.7.9)
+  - JKCalendar (1.0.5):
+    - JKInfinitePageView (~> 1.0.1)
+  - JKInfinitePageView (1.0.1)
 
 DEPENDENCIES:
   - Font-Awesome-Swift
-  - FSCalendar
+  - JKCalendar
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Font-Awesome-Swift
-    - FSCalendar
+    - JKCalendar
+    - JKInfinitePageView
 
 SPEC CHECKSUMS:
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
-  FSCalendar: a04b09f16f811bc92e82f3cf852a15225233b9d5
+  JKCalendar: 14a0e5cb11ad33fe2ce1f25fe87cd228578a3ad6
+  JKInfinitePageView: c662bb9c8ef5e384f92e68358ee5b8607dfea327
 
-PODFILE CHECKSUM: 2139695608a803b5ed2e816013d66ad571172cfe
+PODFILE CHECKSUM: 529f0cb8de372c19fcbe32a26b355ee36a5d46e3
 
 COCOAPODS: 1.5.3

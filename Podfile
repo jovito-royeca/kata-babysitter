@@ -7,8 +7,8 @@ target 'Babysitter' do
 
   # Pods for Babysitter
   pod 'Font-Awesome-Swift'#, :git => 'https://github.com/Vaberer/Font-Awesome-Swift', :branch => 'swift-3'
-  pod 'FSCalendar'
-  
+  pod 'JKCalendar'
+
   target 'BabysitterTests' do
     inherit! :search_paths
     # Pods for testing
