@@ -6,8 +6,11 @@ target 'Babysitter' do
   use_frameworks!
 
   # Pods for Babysitter
+  pod 'DATASource'
+  pod 'DATAStack'
   pod 'Font-Awesome-Swift'#, :git => 'https://github.com/Vaberer/Font-Awesome-Swift', :branch => 'swift-3'
   pod 'JKCalendar'
+  pod 'Sync'
 
   target 'BabysitterTests' do
     inherit! :search_paths

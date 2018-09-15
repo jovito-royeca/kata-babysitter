@@ -20,6 +20,9 @@
 		113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
 		113D7B61214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
 		113D7B62214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
+		113D7B65214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
+		113D7B66214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
+		113D7B67214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
 		115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */; };
 		115FFEE4214C47EF00FDB8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE2214C47EF00FDB8B0 /* Main.storyboard */; };
 		115FFEE6214C47F000FDB8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE5214C47F000FDB8B0 /* Assets.xcassets */; };
@@ -27,12 +30,6 @@
 		115FFEF4214C47F000FDB8B0 /* BabysitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEF3214C47F000FDB8B0 /* BabysitterTests.swift */; };
 		115FFEFF214C47F000FDB8B0 /* BabysitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEFE214C47F000FDB8B0 /* BabysitterUITests.swift */; };
 		115FFF10214C4C9B00FDB8B0 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */; };
-		115FFF13214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF12214C58BD00FDB8B0 /* EarningsViewController.swift */; };
-		115FFF14214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF12214C58BD00FDB8B0 /* EarningsViewController.swift */; };
-		115FFF15214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF12214C58BD00FDB8B0 /* EarningsViewController.swift */; };
-		115FFF17214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF16214C58D000FDB8B0 /* EarningsViewModel.swift */; };
-		115FFF18214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF16214C58D000FDB8B0 /* EarningsViewModel.swift */; };
-		115FFF19214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF16214C58D000FDB8B0 /* EarningsViewModel.swift */; };
 		115FFF1D214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF1B214C637F00FDB8B0 /* Babysitter.xcdatamodeld */; };
 		115FFF1E214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF1B214C637F00FDB8B0 /* Babysitter.xcdatamodeld */; };
 		115FFF1F214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 115FFF1B214C637F00FDB8B0 /* Babysitter.xcdatamodeld */; };
@@ -64,6 +61,7 @@
 		113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
 		113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		115FFEDB214C47EF00FDB8B0 /* Babysitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babysitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115FFEE3214C47EF00FDB8B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -77,8 +75,6 @@
 		115FFEFE214C47F000FDB8B0 /* BabysitterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BabysitterUITests.swift; sourceTree = "<group>"; };
 		115FFF00214C47F000FDB8B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		115FFF12214C58BD00FDB8B0 /* EarningsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewController.swift; sourceTree = "<group>"; };
-		115FFF16214C58D000FDB8B0 /* EarningsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningsViewModel.swift; sourceTree = "<group>"; };
 		115FFF1C214C637F00FDB8B0 /* Babysitter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Babysitter.xcdatamodel; sourceTree = "<group>"; };
 		115FFF21214C90A300FDB8B0 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		34FE6BEBE1FDB77C250957A9 /* Pods-BabysitterUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BabysitterUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BabysitterUITests/Pods-BabysitterUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		113D7B63214D92E2001FFAD3 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		115FFED2214C47EF00FDB8B0 = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +148,8 @@
 		115FFEDD214C47EF00FDB8B0 /* Babysitter */ = {
 			isa = PBXGroup;
 			children = (
+				113D7B63214D92E2001FFAD3 /* API */,
 				115FFF0C214C4C7300FDB8B0 /* Calendar */,
-				115FFF11214C58A200FDB8B0 /* Earnings */,
 				115FFF1A214C635F00FDB8B0 /* Model */,
 				115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */,
 				115FFEE2214C47EF00FDB8B0 /* Main.storyboard */,
@@ -183,15 +187,6 @@
 				113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */,
 			);
 			path = Calendar;
-			sourceTree = "<group>";
-		};
-		115FFF11214C58A200FDB8B0 /* Earnings */ = {
-			isa = PBXGroup;
-			children = (
-				115FFF12214C58BD00FDB8B0 /* EarningsViewController.swift */,
-				115FFF16214C58D000FDB8B0 /* EarningsViewModel.swift */,
-			);
-			path = Earnings;
 			sourceTree = "<group>";
 		};
 		115FFF1A214C635F00FDB8B0 /* Model */ = {
@@ -365,15 +360,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Babysitter/Pods-Babysitter-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework",
+				"${BUILT_PRODUCTS_DIR}/DATAStack/DATAStack.framework",
 				"${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/JKCalendar/JKCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/JKInfinitePageView/JKInfinitePageView.framework",
+				"${BUILT_PRODUCTS_DIR}/Sync/Sync.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DATASource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DATAStack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Font_Awesome_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JKInfinitePageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Sync.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -443,14 +444,13 @@
 			files = (
 				113D7B54214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
 				115FFF10214C4C9B00FDB8B0 /* CalendarViewModel.swift in Sources */,
-				115FFF13214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
 				115FFF22214C90A300FDB8B0 /* CalendarViewController.swift in Sources */,
-				115FFF17214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
 				113D7B58214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
 				113D7B5D214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				115FFF1D214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */,
 				113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
 				115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */,
+				113D7B65214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -459,13 +459,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				115FFF1E214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */,
-				115FFF18214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
 				115FFEF4214C47F000FDB8B0 /* BabysitterTests.swift in Sources */,
-				115FFF14214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
 				113D7B61214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
 				113D7B5E214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B55214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
 				113D7B59214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
+				113D7B66214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,13 +473,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				115FFF1F214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */,
-				115FFF19214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
 				115FFEFF214C47F000FDB8B0 /* BabysitterUITests.swift in Sources */,
-				115FFF15214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
 				113D7B62214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
 				113D7B5F214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B56214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
 				113D7B5A214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
+				113D7B67214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -641,10 +639,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -660,10 +655,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -679,11 +671,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -700,11 +688,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -720,11 +704,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -740,11 +720,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

@@ -1,24 +1,36 @@
 PODS:
+  - DATASource (7.0.2)
+  - DATAStack (8.0.2)
   - Font-Awesome-Swift (1.7.2)
   - JKCalendar (1.0.5):
     - JKInfinitePageView (~> 1.0.1)
   - JKInfinitePageView (1.0.1)
+  - Sync (5.0.0)
 
 DEPENDENCIES:
+  - DATASource
+  - DATAStack
   - Font-Awesome-Swift
   - JKCalendar
+  - Sync
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DATASource
+    - DATAStack
     - Font-Awesome-Swift
     - JKCalendar
     - JKInfinitePageView
+    - Sync
 
 SPEC CHECKSUMS:
+  DATASource: b86db74542b5b27d4d2af43ae698022f19507379
+  DATAStack: 9c415f6e7733eafb9cf5c076613bfb5958c407cb
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   JKCalendar: 14a0e5cb11ad33fe2ce1f25fe87cd228578a3ad6
   JKInfinitePageView: c662bb9c8ef5e384f92e68358ee5b8607dfea327
+  Sync: c74a51b04f67eef7b4999322baebbaa16267d569
 
-PODFILE CHECKSUM: 529f0cb8de372c19fcbe32a26b355ee36a5d46e3
+PODFILE CHECKSUM: dcebcc342964aa752c56d85bf802b25af43ad7f4
 
 COCOAPODS: 1.5.3
