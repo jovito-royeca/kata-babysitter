@@ -11,6 +11,15 @@
 		113D7B54214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */; };
 		113D7B55214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */; };
 		113D7B56214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */; };
+		113D7B58214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */; };
+		113D7B59214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */; };
+		113D7B5A214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */; };
+		113D7B5D214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */; };
+		113D7B5E214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */; };
+		113D7B5F214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */; };
+		113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
+		113D7B61214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
+		113D7B62214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
 		115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */; };
 		115FFEE4214C47EF00FDB8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE2214C47EF00FDB8B0 /* Main.storyboard */; };
 		115FFEE6214C47F000FDB8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE5214C47F000FDB8B0 /* Assets.xcassets */; };
@@ -52,6 +61,9 @@
 /* Begin PBXFileReference section */
 		086A4576F1E299EFF192A772 /* Pods_BabysitterUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BabysitterUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTableViewCell.swift; sourceTree = "<group>"; };
+		113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
+		113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		115FFEDB214C47EF00FDB8B0 /* Babysitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babysitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115FFEE3214C47EF00FDB8B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -165,6 +177,7 @@
 		115FFF0C214C4C7300FDB8B0 /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */,
 				115FFF21214C90A300FDB8B0 /* CalendarViewController.swift */,
 				115FFF0F214C4C9B00FDB8B0 /* CalendarViewModel.swift */,
 				113D7B53214D497A001FFAD3 /* TimeTableViewCell.swift */,
@@ -184,6 +197,8 @@
 		115FFF1A214C635F00FDB8B0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */,
+				113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */,
 				115FFF1B214C637F00FDB8B0 /* Babysitter.xcdatamodeld */,
 			);
 			path = Model;
@@ -431,7 +446,10 @@
 				115FFF13214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
 				115FFF22214C90A300FDB8B0 /* CalendarViewController.swift in Sources */,
 				115FFF17214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
+				113D7B58214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
+				113D7B5D214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				115FFF1D214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */,
+				113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
 				115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,7 +462,10 @@
 				115FFF18214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
 				115FFEF4214C47F000FDB8B0 /* BabysitterTests.swift in Sources */,
 				115FFF14214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
+				113D7B61214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
+				113D7B5E214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B55214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
+				113D7B59214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +477,10 @@
 				115FFF19214C58D000FDB8B0 /* EarningsViewModel.swift in Sources */,
 				115FFEFF214C47F000FDB8B0 /* BabysitterUITests.swift in Sources */,
 				115FFF15214C58BD00FDB8B0 /* EarningsViewController.swift in Sources */,
+				113D7B62214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
+				113D7B5F214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B56214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
+				113D7B5A214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
