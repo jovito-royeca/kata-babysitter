@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Font_Awesome_Swift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,26 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        // add icons to tabbars
-        if let tabBarVC = window?.rootViewController as? UITabBarController {
-                tabBarVC.tabBar.items![0].image = UIImage(bgIcon: .FACalendar,
-                                                          orientation: UIImageOrientation.up,
-                                                          bgTextColor: UIColor.blue,
-                                                          bgBackgroundColor: UIColor.clear,
-                                                          topIcon: .FACalendar,
-                                                          topTextColor: UIColor.clear,
-                                                          bgLarge: false,
-                                                          size: CGSize(width: 30, height: 30))
-            tabBarVC.tabBar.items![1].image = UIImage(bgIcon: .FAMoney,
-                                                      orientation: UIImageOrientation.up,
-                                                      bgTextColor: UIColor.blue,
-                                                      bgBackgroundColor: UIColor.clear,
-                                                      topIcon: .FAMoney,
-                                                      topTextColor: UIColor.clear,
-                                                      bgLarge: false,
-                                                      size: CGSize(width: 30, height: 30))
-        }
-        
+        print("docsPath = \(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0])")
         return true
     }
 
@@ -61,6 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+        CoreDataAPI.sharedInstance.saveContext()
     }
 
 

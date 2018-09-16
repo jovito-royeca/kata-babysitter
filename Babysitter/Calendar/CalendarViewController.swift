@@ -58,6 +58,7 @@ extension CalendarViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell: UITableViewCell?
+        let work = viewModel.getWorkOnSelectedDate()
         
         switch indexPath.section {
         case 0:
@@ -65,7 +66,7 @@ extension CalendarViewController : UITableViewDataSource {
                 fatalError("ActionTableViewCell not found")
             }
             c.delegate = self
-            c.babysitSwitch.isOn = viewModel.hasWorkOn(date: viewModel.selectedDate)
+            c.work = work
             cell = c
 
         default:
@@ -73,9 +74,10 @@ extension CalendarViewController : UITableViewDataSource {
                 fatalError("TimeTableViewCell not found")
             }
             
-            let hour = indexPath.row * 2
-            c.timeLabel.text = (hour < 10 ? "0": "") + String(hour) + ":00"
-            c.descriptionLabel.text = "This is a very long description indeed that may expand multiples lines. Let us see how it goes... blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah."
+            let hour = indexPath.row
+            c.hour = hour
+            c.date = viewModel.selectedDate
+            c.work = work
             cell = c
         }
         
@@ -139,14 +141,24 @@ extension CalendarViewController : JKCalendarDataSource {
         return marks
     }
     
-    func calendar(_ calendar: JKCalendar, continuousMarksWith month: JKMonth) -> [JKCalendarContinuousMark]?{
-        let startDay: JKDay = JKDay(year: month.year, month: month.month, day: month.firstDay.day + 5)!
-        let endDay: JKDay = JKDay(year: month.year, month: month.month, day: month.lastDay.day / 2)!
+    func calendar(_ calendar: JKCalendar, continuousMarksWith month: JKMonth) -> [JKCalendarContinuousMark]? {
+        let startDay: JKDay = JKDay(year: month.year, month: month.month, day: month.firstDay.day)!
+        let endDay: JKDay = JKDay(year: month.year, month: month.month, day: month.lastDay.day)!
+        var marks = [JKCalendarContinuousMark]()
         
-        return [JKCalendarContinuousMark(type: .dot,
-                                         start: startDay,
-                                         end: endDay,
-                                         color: markColor)]
+        guard let works = CoreDataAPI.sharedInstance.findWork(startDate: startDay.date as NSDate,
+                                                              endDate: endDay.date as NSDate) else {
+            return marks
+        }
+        
+        for work in works {
+            marks.append(JKCalendarContinuousMark(type: .dot,
+                                                  start: JKDay(date: work.startDate! as Date),
+                                                  end: JKDay(date: work.endDate! as Date),
+                                                  color: markColor))
+        }
+     
+        return marks
     }
     
 }
@@ -155,9 +167,11 @@ extension CalendarViewController : JKCalendarDataSource {
 extension CalendarViewController : ActionTableViewCellDelegate {
     func babysitToggled(on: Bool) {
         if on {
-            
+            viewModel.saveWork()
+            tableView.reloadData()
         } else {
-            
+            viewModel.deleteWork()
+            tableView.reloadData()
         }
     }
 }

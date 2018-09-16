@@ -18,6 +18,19 @@ class ActionTableViewCell: UITableViewCell {
 
     // MARK: Variables
     var delegate: ActionTableViewCellDelegate?
+    var work: WorkModel? {
+        didSet {
+            if work != nil {
+                babysitSwitch.isOn = true
+                hoursLabel.text = "\(work!.totalHours)"
+                payLabel.text = String(format: "$%.2f", work!.totalPay)
+            } else {
+                babysitSwitch.isOn = false
+                hoursLabel.text = "0"
+                payLabel.text = String(format: "$%.2f", 0)
+            }
+        }
+    }
     
     // MARK: Outlets
     @IBOutlet weak var babysitSwitch: UISwitch!

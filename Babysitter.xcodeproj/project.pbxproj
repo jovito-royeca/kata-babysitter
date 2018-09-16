@@ -20,9 +20,9 @@
 		113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
 		113D7B61214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
 		113D7B62214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */; };
-		113D7B65214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
-		113D7B66214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
-		113D7B67214D92FD001FFAD3 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */; };
+		113D7B65214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* CoreDataAPI.swift */; };
+		113D7B66214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* CoreDataAPI.swift */; };
+		113D7B67214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 113D7B64214D92FD001FFAD3 /* CoreDataAPI.swift */; };
 		115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */; };
 		115FFEE4214C47EF00FDB8B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE2214C47EF00FDB8B0 /* Main.storyboard */; };
 		115FFEE6214C47F000FDB8B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 115FFEE5214C47F000FDB8B0 /* Assets.xcassets */; };
@@ -61,7 +61,7 @@
 		113D7B57214D6849001FFAD3 /* ActionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTableViewCell.swift; sourceTree = "<group>"; };
 		113D7B5B214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		113D7B5C214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WorkModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		113D7B64214D92FD001FFAD3 /* CoreDataAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAPI.swift; sourceTree = "<group>"; };
 		115FFEDB214C47EF00FDB8B0 /* Babysitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Babysitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		115FFEDE214C47EF00FDB8B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		115FFEE3214C47EF00FDB8B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -118,7 +118,7 @@
 		113D7B63214D92E2001FFAD3 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				113D7B64214D92FD001FFAD3 /* DatabaseManager.swift */,
+				113D7B64214D92FD001FFAD3 /* CoreDataAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -450,7 +450,7 @@
 				115FFF1D214C637F00FDB8B0 /* Babysitter.xcdatamodeld in Sources */,
 				113D7B60214D7F1A001FFAD3 /* WorkModel+CoreDataProperties.swift in Sources */,
 				115FFEDF214C47EF00FDB8B0 /* AppDelegate.swift in Sources */,
-				113D7B65214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
+				113D7B65214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +464,7 @@
 				113D7B5E214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B55214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
 				113D7B59214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
-				113D7B66214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
+				113D7B66214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -478,7 +478,7 @@
 				113D7B5F214D7F1A001FFAD3 /* WorkModel+CoreDataClass.swift in Sources */,
 				113D7B56214D497A001FFAD3 /* TimeTableViewCell.swift in Sources */,
 				113D7B5A214D6849001FFAD3 /* ActionTableViewCell.swift in Sources */,
-				113D7B67214D92FD001FFAD3 /* DatabaseManager.swift in Sources */,
+				113D7B67214D92FD001FFAD3 /* CoreDataAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -639,7 +639,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -655,7 +658,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Babysitter/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..Babysitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -671,7 +677,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -688,7 +698,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -704,7 +718,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -720,7 +738,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = BabysitterUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jovitoroyeca..BabysitterUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
