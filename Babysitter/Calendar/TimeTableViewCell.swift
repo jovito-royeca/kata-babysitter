@@ -55,10 +55,10 @@ class TimeTableViewCell: UITableViewCell {
             }
             
             if newDate!.compare(newStartDate!) == .orderedSame {
-                if hour >= 17 && hour <= 19 {
+                if hour >= 17 && hour <= 21 {
                     bandView.backgroundColor = UIColor.orange
                     descriptionLabel.text = String(format: "Start to Bedtime: $%.2f", PayRate.startToBedtimeRate.rawValue)
-                } else if hour >= 19 && hour <= 23 {
+                } else if hour >= 21 && hour <= 23 {
                     bandView.backgroundColor = UIColor.orange
                     descriptionLabel.text = String(format: "Bedtime to Midnight: $%.2f", PayRate.bedtimeToMidnightRate.rawValue)
                 }

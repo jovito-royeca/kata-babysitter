@@ -181,9 +181,11 @@ extension CalendarViewController : ActionTableViewCellDelegate {
     func babysitToggled(on: Bool) {
         if on {
             viewModel.saveWork()
+            tableView.calendar.reloadData()
             tableView.reloadData()
         } else {
             viewModel.deleteWork()
+            tableView.calendar.reloadData()
             tableView.reloadData()
         }
     }

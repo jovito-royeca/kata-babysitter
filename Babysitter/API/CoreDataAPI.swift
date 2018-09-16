@@ -83,7 +83,7 @@ class CoreDataAPI: NSObject {
                     endDate: NSDate) {
         
         let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate <= %@ AND endDate >= %@", startDate, endDate)
+        request.predicate = NSPredicate(format: "startDate >= %@ && startDate <= %@", startDate, endDate)
         request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
         
         guard let result = try? dataStack?.mainContext.fetch(request) else {
@@ -100,7 +100,7 @@ class CoreDataAPI: NSObject {
                   endDate: NSDate) -> [WorkModel]? {
         
         let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate <= %@ AND endDate >= %@", startDate, endDate)
+        request.predicate = NSPredicate(format: "startDate >= %@ && startDate <= %@", startDate, endDate)
         request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
         
         guard let result = try? dataStack?.mainContext.fetch(request) else {

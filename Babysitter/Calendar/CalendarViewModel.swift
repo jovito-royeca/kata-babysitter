@@ -77,12 +77,12 @@ class CalendarViewModel: NSObject {
         components.second = 0
         startDate = calendar.date(from: components)
         
-        hours = 2
+        hours = 4
         components.hour! += hours
         bedtimeDate = calendar.date(from: components)
         startToBedtimePay = Double(hours) * PayRate.startToBedtimeRate.rawValue
         
-        hours = 5
+        hours = 3
         components.day = calendar.component(.day, from: selectedDate) + 1
         components.hour = 0
         midnightDate = calendar.date(from: components)
