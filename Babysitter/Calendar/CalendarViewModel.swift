@@ -49,8 +49,8 @@ class CalendarViewModel: NSObject {
         components.hour = 4
         endDate = calendar.date(from: components)
         
-        guard let result = CoreDataAPI.sharedInstance.findWork(startDate: startDate! as NSDate,
-                                                               endDate: endDate! as NSDate) else {
+        guard let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
+                                                                endDate: endDate! as NSDate) else {
             return nil
         }
         

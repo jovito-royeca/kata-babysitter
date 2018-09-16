@@ -142,12 +142,25 @@ extension CalendarViewController : JKCalendarDataSource {
     }
     
     func calendar(_ calendar: JKCalendar, continuousMarksWith month: JKMonth) -> [JKCalendarContinuousMark]? {
-        let startDay: JKDay = JKDay(year: month.year, month: month.month, day: month.firstDay.day)!
-        let endDay: JKDay = JKDay(year: month.year, month: month.month, day: month.lastDay.day)!
         var marks = [JKCalendarContinuousMark]()
         
-        guard let works = CoreDataAPI.sharedInstance.findWork(startDate: startDay.date as NSDate,
-                                                              endDate: endDay.date as NSDate) else {
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = DateComponents()
+        components.year = month.year
+        components.month = month.month
+        components.day = month.firstDay.day
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        let startDay: JKDay = JKDay(date: calendar.date(from: components)!)
+        
+        components.day = month.lastDay.day
+        let endDay: JKDay = JKDay(date: calendar.date(from: components)!)
+        
+        
+        guard let works = CoreDataAPI.sharedInstance.findWorks(startDate: startDay.date as NSDate,
+                                                               endDate: endDay.date as NSDate) else {
             return marks
         }
         

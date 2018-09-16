@@ -23,6 +23,7 @@ class TimeTableViewCell: UITableViewCell {
             
             guard let work = work,
                 let startDate = work.startDate,
+                let endDate = work.endDate,
                 let date = date else {
                 return
             }
@@ -36,27 +37,31 @@ class TimeTableViewCell: UITableViewCell {
             components.hour = 0
             components.minute = 0
             components.second = 0
-            let newStartDate = calendar.date(from: components)!
+            let newStartDate = calendar.date(from: components)
+            
+            components.day = calendar.component(.day, from: endDate as Date) + 1
+            let newEndDate = calendar.date(from: components)
             
             components.year = calendar.component(.year, from: date)
             components.month = calendar.component(.month, from: date)
             components.day = calendar.component(.day, from: date)
-            components.hour = 0
-            components.minute = 0
-            components.second = 0
-            let newDate = calendar.date(from: components)!
+            let newDate = calendar.date(from: components)
             
-            if newDate.compare(newStartDate) == .orderedSame {
-            if hour >= 17 && hour <= 19 {
-                bandView.backgroundColor = UIColor.orange
-                descriptionLabel.text = String(format: "$%.2f / hour", PayRate.startToBedtimeRate.rawValue)
-            } else if hour >= 19 && hour <= 23 {
-                bandView.backgroundColor = UIColor.orange
-                descriptionLabel.text = String(format: "$%.2f / hour", PayRate.bedtimeToMidnightRate.rawValue)
-            } else if hour > 0 && hour <= 4 {
-                bandView.backgroundColor = UIColor.orange
-                descriptionLabel.text = String(format: "$%.2f / hour", PayRate.midnightToEndRate.rawValue)
+            if newDate!.compare(newEndDate!) == .orderedSame {
+                if hour > 0 && hour <= 4 {
+                    bandView.backgroundColor = UIColor.orange
+                    descriptionLabel.text = String(format: "Midnight To End $%.2f", PayRate.midnightToEndRate.rawValue)
+                }
             }
+            
+            if newDate!.compare(newStartDate!) == .orderedSame {
+                if hour >= 17 && hour <= 19 {
+                    bandView.backgroundColor = UIColor.orange
+                    descriptionLabel.text = String(format: "Start to Bedtime: $%.2f", PayRate.startToBedtimeRate.rawValue)
+                } else if hour >= 19 && hour <= 23 {
+                    bandView.backgroundColor = UIColor.orange
+                    descriptionLabel.text = String(format: "Bedtime to Midnight: $%.2f", PayRate.bedtimeToMidnightRate.rawValue)
+                }
             }
         }
     }

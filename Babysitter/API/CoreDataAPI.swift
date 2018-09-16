@@ -83,7 +83,8 @@ class CoreDataAPI: NSObject {
                     endDate: NSDate) {
         
         let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate = %@ AND endDate = %@", startDate, endDate)
+        request.predicate = NSPredicate(format: "startDate <= %@ AND endDate >= %@", startDate, endDate)
+        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
         
         guard let result = try? dataStack?.mainContext.fetch(request) else {
             return
@@ -95,15 +96,28 @@ class CoreDataAPI: NSObject {
         try! dataStack?.mainContext.save()
     }
     
-    func findWork(startDate: NSDate,
+    func findWorks(startDate: NSDate,
                   endDate: NSDate) -> [WorkModel]? {
         
         let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate = %@ AND endDate = %@", startDate, endDate)
+        request.predicate = NSPredicate(format: "startDate <= %@ AND endDate >= %@", startDate, endDate)
+        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
         
         guard let result = try? dataStack?.mainContext.fetch(request) else {
             return nil
         }
         return result
     }
+    
+//    func findWorkRange(startDate: NSDate,
+//                       endDate: NSDate) -> [WorkModel]? {
+//
+//        let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
+//        request.predicate = NSPredicate(format: "startDate <= %@ && endDate >= %@", startDate, endDate)
+//
+//        guard let result = try? dataStack?.mainContext.fetch(request) else {
+//            return nil
+//        }
+//        return result
+//    }
 }
