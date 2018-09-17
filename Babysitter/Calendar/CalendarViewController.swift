@@ -66,6 +66,7 @@ extension CalendarViewController : UITableViewDataSource {
                 fatalError("ActionTableViewCell not found")
             }
             c.delegate = self
+            c.dateLabel.text = viewModel.dateString()
             c.work = work
             cell = c
 
@@ -88,9 +89,7 @@ extension CalendarViewController : UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 extension CalendarViewController : UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableViewAutomaticDimension
-    }
+    
 }
 
 // MARK: JKCalendarDelegate
@@ -184,6 +183,7 @@ extension CalendarViewController : ActionTableViewCellDelegate {
             tableView.calendar.reloadData()
             tableView.reloadData()
         } else {
+            // TODO: add alert
             viewModel.deleteWork()
             tableView.calendar.reloadData()
             tableView.reloadData()

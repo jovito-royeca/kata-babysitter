@@ -31,6 +31,27 @@ class CalendarViewModel: NSObject {
     }
     
     // MARK: Database methods
+    func dateString() -> String {
+        let formatter = DateFormatter()
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = DateComponents()
+        
+        components.year = calendar.component(.year, from: selectedDate)
+        components.month = calendar.component(.month, from: selectedDate)
+        components.day = calendar.component(.day, from: selectedDate)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        let startDate = calendar.date(from: components)
+        
+        components.day = calendar.component(.day, from: selectedDate) + 1
+        let endDate = calendar.date(from: components)
+        
+        formatter.dateFormat = "MMM dd"
+        
+        return "\(formatter.string(from: startDate!)) - \(formatter.string(from: endDate!))"
+    }
+    
     func getWorkOnSelectedDate() -> WorkModel? {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()

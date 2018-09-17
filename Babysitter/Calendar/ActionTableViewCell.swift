@@ -15,7 +15,7 @@ protocol ActionTableViewCellDelegate : NSObjectProtocol {
 class ActionTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "ActionCell"
-
+    
     // MARK: Variables
     var delegate: ActionTableViewCellDelegate?
     var work: WorkModel? {
@@ -33,6 +33,7 @@ class ActionTableViewCell: UITableViewCell {
     }
     
     // MARK: Outlets
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var babysitSwitch: UISwitch!
     @IBOutlet weak var hoursLabel: UILabel!
     @IBOutlet weak var payLabel: UILabel!
