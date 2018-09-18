@@ -95,7 +95,18 @@ extension CalendarViewController : UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension CalendarViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(44)
+        var height = CGFloat(0)
+        
+        switch indexPath.section {
+        case 0:
+            height = ActionTableViewCell.cellHeight
+        case 1:
+            height = TimeTableViewCell.cellHeight
+        default:
+            ()
+        }
+
+        return height
     }
 }
 

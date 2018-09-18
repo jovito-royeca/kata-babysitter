@@ -20,7 +20,9 @@ protocol ActionTableViewCellDelegate : NSObjectProtocol {
  */
 class ActionTableViewCell: UITableViewCell {
 
+    // MARK: Constants
     static let reuseIdentifier = "ActionCell"
+    static let cellHeight = CGFloat(88)
     
     // MARK: Variables
     var delegate: ActionTableViewCellDelegate?

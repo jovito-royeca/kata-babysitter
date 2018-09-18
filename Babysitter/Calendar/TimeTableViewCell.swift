@@ -13,7 +13,9 @@ import UIKit
  */
 class TimeTableViewCell: UITableViewCell {
 
+    // MARK: Constants
     static let reuseIdentifier = "TimeCell"
+    static let cellHeight = CGFloat(44)
     
     // MARK: Outlets
     @IBOutlet weak var bandView: UIView!
