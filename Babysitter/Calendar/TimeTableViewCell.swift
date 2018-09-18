@@ -8,6 +8,9 @@
 
 import UIKit
 
+/*
+ * The cell that contains the hour, work description, and pay rate.
+ */
 class TimeTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "TimeCell"

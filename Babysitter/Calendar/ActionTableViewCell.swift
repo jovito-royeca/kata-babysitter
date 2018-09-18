@@ -8,10 +8,16 @@
 
 import UIKit
 
+/*
+ * Delegate that handles the switch toggles.
+ */
 protocol ActionTableViewCellDelegate : NSObjectProtocol {
     func babysitToggled(on: Bool)
 }
 
+/*
+ * The cell that contains the Switch toggle for creating/deleting Babysitter works.
+ */
 class ActionTableViewCell: UITableViewCell {
 
     static let reuseIdentifier = "ActionCell"

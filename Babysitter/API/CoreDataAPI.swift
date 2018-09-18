@@ -9,11 +9,13 @@
 import UIKit
 import Sync
 
+/*
+ * Singleton class to manage Core Data operations.
+ */
 class CoreDataAPI: NSObject {
     static let sharedInstance = CoreDataAPI()
     
     // MARK: Variables
-    
     /*
      * Uses SyncDB to simplify mapping JSON to Core Data.
      * This is the main context of Core Data and is used for saving and retrieving data.
@@ -51,6 +53,9 @@ class CoreDataAPI: NSObject {
         }
     }
     
+    /*
+     * Save the defined Babysitter work.
+     */
     func saveWork(startDate: NSDate,
                   bedtimeDate: NSDate,
                   midnightDate: NSDate,
@@ -61,8 +66,9 @@ class CoreDataAPI: NSObject {
                   totalHours: Int32,
                   totalPay: Double) {
         
-        guard let desc = NSEntityDescription.entity(forEntityName: "WorkModel", in: dataStack!.mainContext),
-            let work = NSManagedObject(entity: desc, insertInto: dataStack?.mainContext) as? WorkModel else {
+        guard let dataStack = dataStack,
+            let desc = NSEntityDescription.entity(forEntityName: "WorkModel", in: dataStack.mainContext),
+            let work = NSManagedObject(entity: desc, insertInto: dataStack.mainContext) as? WorkModel else {
                 fatalError()
         }
         
@@ -76,48 +82,46 @@ class CoreDataAPI: NSObject {
         work.totalHours = totalHours
         work.totalPay = totalPay
         
-        try! dataStack?.mainContext.save()
+        try! dataStack.mainContext.save()
     }
     
+    /*
+     * Delete the Babysitter works from the date range in the parameters.
+     */
     func deleteWork(startDate: NSDate,
                     endDate: NSDate) {
         
-        let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate >= %@ && startDate <= %@", startDate, endDate)
-        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
-        
-        guard let result = try? dataStack?.mainContext.fetch(request) else {
+        guard let dataStack = dataStack else {
             return
         }
-        for object in result! {
-            dataStack?.mainContext.delete(object)
-        }
-        
-        try! dataStack?.mainContext.save()
-    }
-    
-    func findWorks(startDate: NSDate,
-                  endDate: NSDate) -> [WorkModel]? {
         
         let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-        request.predicate = NSPredicate(format: "startDate >= %@ && startDate <= %@", startDate, endDate)
+        request.predicate = NSPredicate(format: "(startDate >= %@) AND (startDate <= %@)", startDate, endDate)
         request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
         
-        guard let result = try? dataStack?.mainContext.fetch(request) else {
-            return nil
+        let result = try! dataStack.mainContext.fetch(request)
+        for object in result {
+            dataStack.mainContext.delete(object)
         }
-        return result
+        
+        try! dataStack.mainContext.save()
     }
     
-//    func findWorkRange(startDate: NSDate,
-//                       endDate: NSDate) -> [WorkModel]? {
-//
-//        let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
-//        request.predicate = NSPredicate(format: "startDate <= %@ && endDate >= %@", startDate, endDate)
-//
-//        guard let result = try? dataStack?.mainContext.fetch(request) else {
-//            return nil
-//        }
-//        return result
-//    }
+    /*
+     * Find Babysitter works from the date range in the parameters.
+     */
+    func findWorks(startDate: NSDate,
+                  endDate: NSDate) -> [WorkModel] {
+        
+        guard let dataStack = dataStack else {
+            return [WorkModel]()
+        }
+        
+        let request: NSFetchRequest<WorkModel> = WorkModel.fetchRequest()
+        request.predicate = NSPredicate(format: "(startDate >= %@) AND (startDate <= %@)", startDate, endDate)
+        request.sortDescriptors = [NSSortDescriptor(key: "startDate", ascending: true)]
+        
+        let result = try! dataStack.mainContext.fetch(request)
+        return result
+    }
 }

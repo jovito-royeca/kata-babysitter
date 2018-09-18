@@ -9,9 +9,14 @@
 import UIKit
 import JKCalendar
 
+/*
+ * The main ViewController that displays the calendar.
+ */
 class CalendarViewController: UIViewController {
     // MARK: Variables
     let markColor = UIColor(red: 40/255, green: 178/255, blue: 253/255, alpha: 1)
+    
+    // handles data and business logic
     var viewModel = CalendarViewModel()
     
     // MARK: Outlets
@@ -96,7 +101,6 @@ extension CalendarViewController : UITableViewDelegate {
 
 // MARK: JKCalendarDelegate
 extension CalendarViewController: JKCalendarDelegate {
-    
     func calendar(_ calendar: JKCalendar, didTouch day: JKDay){
         viewModel.selectedDate = day.date
         calendar.focusWeek = day < calendar.month ? 0: day > calendar.month ? calendar.month.weeksCount - 1: day.weekOfMonth - 1
@@ -119,7 +123,6 @@ extension CalendarViewController: JKCalendarDelegate {
 
 // MARK: JKCalendarDataSource
 extension CalendarViewController : JKCalendarDataSource {
-    
     func calendar(_ calendar: JKCalendar, didPan days: [JKDay]) {
         viewModel.currentDate = Date()
         calendar.reloadData()
@@ -130,12 +133,14 @@ extension CalendarViewController : JKCalendarDataSource {
         let jkSelectedDate = JKDay(date: viewModel.selectedDate)
         let jkCurrentDate = JKDay(date: viewModel.currentDate)
         
+        // solid circle for the selected date
         if jkSelectedDate == month {
             marks.append(JKCalendarMark(type: .circle,
                                         day: jkSelectedDate,
                                         color: markColor))
         }
         
+        // hollow circle for the current date
         marks.append(JKCalendarMark(type: .hollowCircle,
                                     day: jkCurrentDate,
                                     color: markColor))
@@ -145,26 +150,21 @@ extension CalendarViewController : JKCalendarDataSource {
     func calendar(_ calendar: JKCalendar, continuousMarksWith month: JKMonth) -> [JKCalendarContinuousMark]? {
         var marks = [JKCalendarContinuousMark]()
         
-        let calendar = NSCalendar(identifier: .gregorian)!
-        var components = DateComponents()
-        components.year = month.year
-        components.month = month.month
-        components.day = month.firstDay.day
-        components.hour = 0
-        components.minute = 0
-        components.second = 0
+        // get the visible weeks
+        guard let firstWeek = month.weeks().first,
+            let lastWeek = month.weeks().last else {
+            return marks
+        }
+        let startDay = firstWeek.sunday.date
+        let endDay = lastWeek.staturday.date
         
-        let startDay: JKDay = JKDay(date: calendar.date(from: components)!)
-        
-        components.day = month.lastDay.day
-        let endDay: JKDay = JKDay(date: calendar.date(from: components)!)
-        
-        
-        guard let works = CoreDataAPI.sharedInstance.findWorks(startDate: startDay.date as NSDate,
-                                                               endDate: endDay.date as NSDate) else {
+        // get the Babysitter works from first visible day to last visible day
+        guard let works = viewModel.findWorks(startDate: startDay,
+                                              endDate: endDay) else {
             return marks
         }
         
+        // create marks from Babysitter works
         for work in works {
             marks.append(JKCalendarContinuousMark(type: .dot,
                                                   start: JKDay(date: work.startDate! as Date),
@@ -174,11 +174,13 @@ extension CalendarViewController : JKCalendarDataSource {
      
         return marks
     }
-    
 }
 
 // MARK: ActionTableViewCellDelegate
 extension CalendarViewController : ActionTableViewCellDelegate {
+    /*
+     * Implements the Switch toggles. Displays a prompt if the Switch is off.
+     */
     func babysitToggled(on: Bool) {
         if on {
             viewModel.saveWork()

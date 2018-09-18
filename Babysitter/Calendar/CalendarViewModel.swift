@@ -8,6 +8,9 @@
 
 import Foundation
 
+/*
+ * Business contants for pay rates
+ */
 enum PayRate : Double {
     case startToBedtimeRate    = 12.0
     case bedtimeToMidnightRate = 8.0
@@ -22,9 +25,20 @@ enum PayRate : Double {
     }
 }
 
+/*
+ * The View-Model class in MVVC. Handles data transformation and business logic operations.
+ */
 class CalendarViewModel: NSObject {
     // MARK: Variables
+    
+    /*
+     * The selected date in calendar UI
+     */
     var selectedDate = Date()
+    
+    /*
+     * The current date
+     */
     var currentDate = Date()
     
     // MARK: UITableView methods
@@ -32,11 +46,18 @@ class CalendarViewModel: NSObject {
         return 2
     }
     
+    /*
+     * Supplies the section for the table view UI. The first section contains the ActionTableViewCell,
+     * the second section contains 24 TimeTableViewCells to represent 24 hours.
+     */
     func numberOfRows(inSection section: Int) -> Int {
         return [1,24][section]
     }
     
     // MARK: Display methods
+    /*
+     * Returns date from selected date to the next day, for example: Sep 18 - Sep 19
+     */
     func dateString() -> String {
         let formatter = DateFormatter()
         let calendar = NSCalendar(identifier: .gregorian)!
@@ -58,10 +79,16 @@ class CalendarViewModel: NSObject {
         return "\(formatter.string(from: startDate!)) - \(formatter.string(from: endDate!))"
     }
     
+    /*
+     * Returms AM/PM format for hours
+     */
     func hourString(hour: Int) -> String {
         return "\(hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour)) \(hour >= 12 ? "PM" : "AM")"
     }
-    
+
+    /*
+     * Returns if the hour parameter is in the work shift.
+     */
     func hourEnabled(hour: Int) -> Bool {
         let work = getWorkOnSelectedDate()
         let previousWork = getPreviousWorkOnSelectedDate()
@@ -70,7 +97,6 @@ class CalendarViewModel: NSObject {
         guard let newDate = getCleanDate(from: selectedDate) else {
             return enabled
         }
-        
         
         if hour > 0 && hour <= 4 {
             if previousWork != nil && previousWork?.endDate != nil {
@@ -95,6 +121,9 @@ class CalendarViewModel: NSObject {
         return enabled
     }
     
+    /*
+     * Returns the hour description in the work shift.
+     */
     func hourDescription(hour: Int) -> String {
         let work = getWorkOnSelectedDate()
         let previousWork = getPreviousWorkOnSelectedDate()
@@ -127,6 +156,9 @@ class CalendarViewModel: NSObject {
         return descriptionString
     }
     
+    /*
+     * Returns the rate of pay for the hour parameter in the work shift.
+     */
     func hourPrice(hour: Int) -> String {
         let work = getWorkOnSelectedDate()
         let previousWork = getPreviousWorkOnSelectedDate()
@@ -160,6 +192,9 @@ class CalendarViewModel: NSObject {
     }
     
     // MARK: Utility methods
+    /*
+     * Returns a date set at midnight from the supplied date parameter.
+     */
     func getCleanDate(from date: Date) -> Date? {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()
@@ -175,6 +210,9 @@ class CalendarViewModel: NSObject {
     }
     
     // MARK: Database methods
+    /*
+     * Queries the Core Data for a Babysitting work from the selectedDate.
+     */
     func getWorkOnSelectedDate() -> WorkModel? {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()
@@ -193,14 +231,14 @@ class CalendarViewModel: NSObject {
         components.hour = 4
         endDate = calendar.date(from: components)
         
-        guard let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
-                                                                endDate: endDate! as NSDate) else {
-            return nil
-        }
-        
+        let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
+                                                          endDate: endDate! as NSDate)
         return result.first
     }
     
+    /*
+     * Queries the Core Data for a Babysitting work one-day before the selectedDate.
+     */
     func getPreviousWorkOnSelectedDate() -> WorkModel? {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()
@@ -219,14 +257,24 @@ class CalendarViewModel: NSObject {
         components.hour = 4
         endDate = calendar.date(from: components)
         
-        guard let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
-                                                                endDate: endDate! as NSDate) else {
-                                                                    return nil
-        }
-        
+        let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
+                                                          endDate: endDate! as NSDate)
         return result.first
     }
     
+    /*
+     * Queries the Core Data for a Babysitting works from the supplied date range.
+     */
+    func findWorks(startDate: Date,
+                   endDate: Date) -> [WorkModel]? {
+        return CoreDataAPI.sharedInstance.findWorks(startDate: startDate as NSDate,
+                                                    endDate: endDate as NSDate)
+    }
+
+    /*
+     * Saves the Babysitting work to Core Data.
+     * Calculates the totalPay and totalHous.
+     */
     func saveWork() {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()
@@ -279,6 +327,9 @@ class CalendarViewModel: NSObject {
                                             totalPay: totalPay)
     }
     
+    /*
+     * Deletes the Babysitting work in Core Data from the selectedDate.
+     */
     func deleteWork() {
         let calendar = NSCalendar(identifier: .gregorian)!
         var components = DateComponents()

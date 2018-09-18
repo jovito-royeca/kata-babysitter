@@ -2,4 +2,86 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Babysitter/API/CoreDataAPI.swift"
+            timestampString = "558981835.768518"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "saveWork(startDate:bedtimeDate:midnightDate:endDate:startToBedtimePay:bedtimeToMidnightPay:midnightToEndPay:totalHours:totalPay:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Babysitter.CoreDataAPI.saveWork(startDate: __ObjC.NSDate, bedtimeDate: __ObjC.NSDate, midnightDate: __ObjC.NSDate, endDate: __ObjC.NSDate, startToBedtimePay: Swift.Double, bedtimeToMidnightPay: Swift.Double, midnightToEndPay: Swift.Double, totalHours: Swift.Int32, totalPay: Swift.Double) -&gt; ()"
+                  moduleName = "Babysitter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jovitoroyeca/workspace/Jovito%20Royeca/Job%20Applications/OhioHealth/kata-babysitter/Babysitter/API/CoreDataAPI.swift"
+                  timestampString = "558974045.9460371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1407">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BabysitterTests.CoreDataAPI.saveWork(startDate: __ObjC.NSDate, bedtimeDate: __ObjC.NSDate, midnightDate: __ObjC.NSDate, endDate: __ObjC.NSDate, startToBedtimePay: Swift.Double, bedtimeToMidnightPay: Swift.Double, midnightToEndPay: Swift.Double, totalHours: Swift.Int32, totalPay: Swift.Double) -&gt; ()"
+                  moduleName = "BabysitterTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jovitoroyeca/workspace/Jovito%20Royeca/Job%20Applications/OhioHealth/kata-babysitter/Babysitter/API/CoreDataAPI.swift"
+                  timestampString = "558974045.9481111"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "1407">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BabysitterTests/BabysitterTests.swift"
+            timestampString = "558981835.76859"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "testSaveWork()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BabysitterTests/BabysitterTests.swift"
+            timestampString = "558981835.768638"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "testSaveWork()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

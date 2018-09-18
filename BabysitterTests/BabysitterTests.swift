@@ -33,4 +33,89 @@ class BabysitterTests: XCTestCase {
         }
     }
     
+    /*
+     * Test that we can create Babysitter works in the current month.
+     */
+    func testSaveWork() {
+        // delete the works first from this month
+        testDeleteWork()
+        
+        let viewModel = CalendarViewModel()
+        
+        // start of month
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = calendar.components([.year, .month], from: Date())
+        let startDate = calendar.date(from: components)!
+        let firstDayOfMonth = calendar.component(.day, from: startDate)
+        
+        // end of month
+        let comps2 = NSDateComponents()
+        comps2.month = 1
+        comps2.day = -1
+        let endDate = calendar.date(byAdding: comps2 as DateComponents, to: startDate, options: [])!
+        let lastDayOfMonth = calendar.component(.day, from: endDate)
+        
+        // loop through the month and create Babysitter works
+        for i in firstDayOfMonth...lastDayOfMonth {
+            components.year = calendar.component(.year, from: startDate)
+            components.month = calendar.component(.month, from: startDate)
+            components.day = i
+            viewModel.selectedDate = calendar.date(from: components)!
+            viewModel.saveWork()
+        }
+        
+        // check that we saved the works
+        guard let results = viewModel.findWorks(startDate: startDate, endDate: endDate) else {
+            XCTFail()
+            return
+        }
+        
+        // print the works
+        for work in results {
+            print("\(work.startDate!)-\(work.endDate!) = \(work.totalPay)")
+        }
+        
+        // delete the created works first from this month
+        testDeleteWork()
+    }
+    
+    /*
+     * Test that we can delete the Babysitter works in the current month.
+     */
+    
+    func testDeleteWork() {
+        let viewModel = CalendarViewModel()
+        
+        // start of month
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = calendar.components([.year, .month], from: Date())
+        let startDate = calendar.date(from: components)!
+        let firstDayOfMonth = calendar.component(.day, from: startDate)
+        
+        // end of month
+        let comps2 = NSDateComponents()
+        comps2.month = 1
+        comps2.day = -1
+        let endDate = calendar.date(byAdding: comps2 as DateComponents, to: startDate, options: [])!
+        let lastDayOfMonth = calendar.component(.day, from: endDate)
+        
+        // loop through the month and create Babysitter works
+        for i in firstDayOfMonth...lastDayOfMonth {
+            components.year = calendar.component(.year, from: startDate)
+            components.month = calendar.component(.month, from: startDate)
+            components.day = i
+            viewModel.selectedDate = calendar.date(from: components)!
+            viewModel.deleteWork()
+        }
+        
+        // check that we saved the works
+        guard let results = viewModel.findWorks(startDate: startDate, endDate: endDate) else {
+            XCTFail()
+            return
+        }
+        
+        // check that we have deleted all the saved works
+        XCTAssert(results.count == 0)
+        
+    }
 }
