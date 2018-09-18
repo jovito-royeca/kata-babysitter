@@ -12,6 +12,14 @@ enum PayRate : Double {
     case startToBedtimeRate    = 12.0
     case bedtimeToMidnightRate = 8.0
     case midnightToEndRate     = 16.0
+    
+    var description : String {
+        switch self {
+        case .startToBedtimeRate: return "Start to Bedtime"
+        case .bedtimeToMidnightRate: return "Bedtime to Midnight"
+        case .midnightToEndRate: return "Midnight to End"
+        }
+    }
 }
 
 class CalendarViewModel: NSObject {
@@ -25,9 +33,7 @@ class CalendarViewModel: NSObject {
     }
     
     func numberOfRows(inSection section: Int) -> Int {
-        let work = getWorkOnSelectedDate()
-        
-        return [1, work != nil ? 24 : 0][section]
+        return [1,24][section]
     }
     
     // MARK: Database methods
@@ -73,6 +79,32 @@ class CalendarViewModel: NSObject {
         guard let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
                                                                 endDate: endDate! as NSDate) else {
             return nil
+        }
+        
+        return result.first
+    }
+    
+    func getPreviousWorkOnSelectedDate() -> WorkModel? {
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = DateComponents()
+        var startDate: Date?
+        var endDate: Date?
+        
+        components.year = calendar.component(.year, from: selectedDate)
+        components.month = calendar.component(.month, from: selectedDate)
+        components.day = calendar.component(.day, from: selectedDate) - 1
+        components.hour = 17
+        components.minute = 0
+        components.second = 0
+        startDate = calendar.date(from: components)
+        
+        components.day = calendar.component(.day, from: selectedDate)
+        components.hour = 4
+        endDate = calendar.date(from: components)
+        
+        guard let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
+                                                                endDate: endDate! as NSDate) else {
+                                                                    return nil
         }
         
         return result.first

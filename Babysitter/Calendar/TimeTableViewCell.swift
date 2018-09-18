@@ -17,58 +17,8 @@ class TimeTableViewCell: UITableViewCell {
     // MARK: Variables
     var hour = 0
     var date: Date?
-    var work: WorkModel? {
-        didSet {
-            timeLabel.text = (hour < 10 ? "0": "") + "\(hour):00"
-            bandView.backgroundColor = UIColor.clear
-            descriptionLabel.text = " "
-            priceLabel.text = " "
-            
-            guard let work = work,
-                let startDate = work.startDate,
-                let endDate = work.endDate,
-                let date = date else {
-                return
-            }
-            
-            let calendar = NSCalendar(identifier: .gregorian)!
-            var components = DateComponents()
-            
-            components.year = calendar.component(.year, from: startDate as Date)
-            components.month = calendar.component(.month, from: startDate as Date)
-            components.day = calendar.component(.day, from: startDate as Date)
-            components.hour = 0
-            components.minute = 0
-            components.second = 0
-            let newStartDate = calendar.date(from: components)
-            
-            components.day = calendar.component(.day, from: endDate as Date)
-            let newEndDate = calendar.date(from: components)
-            
-            components.day = calendar.component(.day, from: date)
-            let newDate = calendar.date(from: components)
-            
-            if newDate!.compare(newEndDate!) == .orderedSame {
-                if hour > 0 && hour <= 4 {
-                    bandView.backgroundColor = markColor
-                    descriptionLabel.text = "Midnight To End"
-                    priceLabel.text = String(format: "$%.2f", PayRate.midnightToEndRate.rawValue)
-                }
-            }
-            
-            if newDate!.compare(newStartDate!) == .orderedSame {
-                if hour >= 17 && hour <= 21 {
-                    bandView.backgroundColor = markColor
-                    descriptionLabel.text = "Start to Bedtime"
-                    priceLabel.text = String(format: "$%.2f", PayRate.startToBedtimeRate.rawValue)
-                } else if hour >= 21 && hour <= 23 {
-                    bandView.backgroundColor = markColor
-                    descriptionLabel.text = "Bedtime to Midnight"
-                    priceLabel.text = String(format: "$%.2f", PayRate.bedtimeToMidnightRate.rawValue)
-                }
-            }
-        }
-    }
+    var work: WorkModel?
+    var previousWork: WorkModel?
     
     // MARK: Outlets
     @IBOutlet weak var bandView: UIView!
@@ -88,6 +38,82 @@ class TimeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    // MARK: Custom methods
+    func updateDisplay() {
+        timeLabel.text = "\(hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour)) \(hour >= 12 ? "PM" : "AM")"//(hour < 10 ? "0": "") + "\(hour):00"
+        bandView.backgroundColor = UIColor.clear
+        descriptionLabel.text = " "
+        priceLabel.text = " "
+        
+//        guard let work = work,
+//            let startDate = work.startDate,
+//            let date = date else {
+//            return
+//        }
+//
+//        let calendar = NSCalendar(identifier: .gregorian)!
+//        var components = DateComponents()
+//
+//        components.year = calendar.component(.year, from: startDate as Date)
+//        components.month = calendar.component(.month, from: startDate as Date)
+//        components.day = calendar.component(.day, from: startDate as Date)
+//        components.hour = 0
+//        components.minute = 0
+//        components.second = 0
+//        guard let newStartDate = calendar.date(from: components) else {
+//            return
+//        }
+//
+//        components.day = calendar.component(.day, from: date)
+//        guard let newDate = calendar.date(from: components) else {
+//            return
+//        }
+        
+        guard let date = date,
+            let newDate = getCleanDate(from: date) else {
+            return
+        }
+        
+        if hour > 0 && hour <= 4 {
+            if previousWork != nil && previousWork?.endDate != nil {
+                if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
+                    bandView.backgroundColor = markColor
+                    descriptionLabel.text = PayRate.midnightToEndRate.description
+                    priceLabel.text = String(format: "$%.2f", PayRate.midnightToEndRate.rawValue)
+                }
+            }
+            
+        } else if hour >= 17 && hour <= 21 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    bandView.backgroundColor = markColor
+                    descriptionLabel.text = PayRate.startToBedtimeRate.description
+                    priceLabel.text = String(format: "$%.2f", PayRate.startToBedtimeRate.rawValue)
+                }
+            }
+        } else if hour >= 21 && hour <= 23 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    bandView.backgroundColor = markColor
+                    descriptionLabel.text = PayRate.bedtimeToMidnightRate.description
+                    priceLabel.text = String(format: "$%.2f", PayRate.bedtimeToMidnightRate.rawValue)
+                }
+            }
+        }
+    }
     
+    func getCleanDate(from date: Date) -> Date? {
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = DateComponents()
+        
+        components.year = calendar.component(.year, from: date)
+        components.month = calendar.component(.month, from: date)
+        components.day = calendar.component(.day, from: date)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        return calendar.date(from: components)
+    }
 
 }

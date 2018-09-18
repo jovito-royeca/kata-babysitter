@@ -5,7 +5,7 @@ PODS:
   - JKCalendar (1.0.5):
     - JKInfinitePageView (~> 1.0.1)
   - JKInfinitePageView (1.0.1)
-  - Sync (5.0.0)
+  - Sync (5.0.1)
 
 DEPENDENCIES:
   - DATASource
@@ -29,7 +29,7 @@ SPEC CHECKSUMS:
   Font-Awesome-Swift: 83ab9db365379ee6025167cec67bdc5d3226a811
   JKCalendar: 14a0e5cb11ad33fe2ce1f25fe87cd228578a3ad6
   JKInfinitePageView: c662bb9c8ef5e384f92e68358ee5b8607dfea327
-  Sync: c74a51b04f67eef7b4999322baebbaa16267d569
+  Sync: 5281923838f0f60e1d34063ac9ab692b6e012038
 
 PODFILE CHECKSUM: dcebcc342964aa752c56d85bf802b25af43ad7f4
 

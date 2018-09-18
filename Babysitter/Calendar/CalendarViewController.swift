@@ -79,6 +79,8 @@ extension CalendarViewController : UITableViewDataSource {
             c.hour = hour
             c.date = viewModel.selectedDate
             c.work = work
+            c.previousWork = viewModel.getPreviousWorkOnSelectedDate()
+            c.updateDisplay()
             cell = c
         }
         
@@ -89,7 +91,9 @@ extension CalendarViewController : UITableViewDataSource {
 
 // MARK: UITableViewDelegate
 extension CalendarViewController : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(44)
+    }
 }
 
 // MARK: JKCalendarDelegate
