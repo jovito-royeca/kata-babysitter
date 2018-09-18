@@ -18,7 +18,8 @@ In order to get paid for 1 night of work<br>
 I want to calculate my nightly charge<br>*
 
 ## Implementation
-<img src="screenshots/Screenshot-01.png" width="30%" height="auto"/>
+<img src="screenshots/Screenshot-02.png" width="30%" height="auto"/>
+<img src="screenshots/Screenshot-03.png" width="30%" height="auto"/>
 
 This is an iOS implementation using the MVVC design framework. The UI and user interaction are handled by the `CalendarViewController` (the View in the MVVC) and additional `UITableViewCell` subclasses, namely: `ActionTableViewCell` and `TimeTableViewCell`. 
 
