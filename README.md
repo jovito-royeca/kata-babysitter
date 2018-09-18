@@ -25,6 +25,8 @@ This is an iOS implementation using the MVVC design framework. The UI and user i
 
 Business logic and data representation are handled by CalendarViewModel (the ViewModel in the MVVC). Core Data operations are delegated to the `CoreDataAPI` class.
 
+The `WorkModel` (`NSManagedObject` subclass) is the Model in the MVVC. It represents the nightly Babysitting work.
+
 The user may toggle the `UIControlSwitch` to save/delete a Babysitting work. Total hours and total pay are then calculated and saved to Core Data.
 
 When the app is restarted, saved Babysitting works should be displayed in the calendar.
