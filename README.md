@@ -16,3 +16,25 @@ The babysitter:
 *As a babysitter<br>
 In order to get paid for 1 night of work<br>
 I want to calculate my nightly charge<br>*
+
+## Implementation
+<img src="screenshots/Simulator Screen Shot - iPhone X - 2018-09-18 at 12.44.13.png
+" width="30%" height="auto"/>
+
+This is an iOS implementation using the MVVC design framework. The UI and user interaction are handled by the `CalendarViewController` (the View in the MVVC) and additional `UITableViewCell` subclasses, namely: `ActionTableViewCell` and `TimeTableViewCell`. 
+
+Business logic and data representation are handled by CalendarViewModel (the ViewModel in the MVVC). Core Data operations are delegated to the `CoreDataAPI` class.
+
+The user may toggle the `UIControlSwitch` to save/delete a Babysitting work. Total hours and total pay are then calculated and saved to Core Data.
+
+When the app is restarted, saved Babysitting works should be displayed in the calendar.
+
+## Cloning
+Clone the repository and open the Xcode workspace file. There is no need to fetch Cocoapod dependencies as they are already included in the repository.
+
+```
+$git clone https://github.com/jovito-royeca/kata-babysitter.git
+$cd kata-babysitter
+$open Babysitter.xcworkspace
+```
+
