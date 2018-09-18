@@ -9,7 +9,7 @@
 import Foundation
 
 /*
- * Business contants for pay rates
+ * Constants for pay rates
  */
 enum PayRate : Double {
     case startToBedtimeRate    = 12.0
@@ -23,6 +23,16 @@ enum PayRate : Double {
         case .midnightToEndRate: return "Midnight to End"
         }
     }
+}
+
+/*
+ * Constants for hourly schedule
+ */
+enum WorkHours : Int {
+    case start    = 17 // 5 PM
+    case bedtime  = 21 // 9 PM
+    case midnight = 24 // 12 AM
+    case end      = 4  // 4 AM
 }
 
 /*
@@ -98,19 +108,19 @@ class CalendarViewModel: NSObject {
             return enabled
         }
         
-        if hour > 0 && hour <= 4 {
+        if hour > 0 && hour <= WorkHours.end.rawValue {
             if previousWork != nil && previousWork?.endDate != nil {
                 if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
                     enabled = true
                 }
             }
-        } else if hour >= 17 && hour < 21 {
+        } else if hour >= WorkHours.start.rawValue && hour < WorkHours.bedtime.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     enabled = true
                 }
             }
-        } else if hour >= 21 && hour <= 24 {
+        } else if hour >= WorkHours.bedtime.rawValue && hour <= WorkHours.midnight.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     enabled = true
@@ -133,19 +143,19 @@ class CalendarViewModel: NSObject {
             return descriptionString
         }
         
-        if hour > 0 && hour <= 4 {
+        if hour > 0 && hour <= WorkHours.end.rawValue {
             if previousWork != nil && previousWork?.endDate != nil {
                 if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
                     descriptionString = PayRate.midnightToEndRate.description
                 }
             }
-        } else if hour >= 17 && hour < 21 {
+        } else if hour >= WorkHours.start.rawValue && hour < WorkHours.bedtime.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     descriptionString = PayRate.startToBedtimeRate.description
                 }
             }
-        } else if hour >= 21 && hour <= 24 {
+        } else if hour >= WorkHours.bedtime.rawValue && hour <= WorkHours.midnight.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     descriptionString = PayRate.bedtimeToMidnightRate.description
@@ -168,19 +178,19 @@ class CalendarViewModel: NSObject {
             return description
         }
         
-        if hour > 0 && hour <= 4 {
+        if hour > 0 && hour <= WorkHours.end.rawValue {
             if previousWork != nil && previousWork?.endDate != nil {
                 if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
                     priceString = String(format: "$%.2f", PayRate.midnightToEndRate.rawValue)
                 }
             }
-        } else if hour >= 17 && hour < 21 {
+        } else if hour >= WorkHours.start.rawValue && hour < WorkHours.bedtime.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     priceString = String(format: "$%.2f", PayRate.startToBedtimeRate.rawValue)
                 }
             }
-        } else if hour >= 21 && hour <= 23 {
+        } else if hour >= WorkHours.bedtime.rawValue && hour <= WorkHours.midnight.rawValue {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     priceString = String(format: "$%.2f", PayRate.bedtimeToMidnightRate.rawValue)
@@ -222,13 +232,13 @@ class CalendarViewModel: NSObject {
         components.year = calendar.component(.year, from: selectedDate)
         components.month = calendar.component(.month, from: selectedDate)
         components.day = calendar.component(.day, from: selectedDate)
-        components.hour = 17
+        components.hour = WorkHours.start.rawValue
         components.minute = 0
         components.second = 0
         startDate = calendar.date(from: components)
         
         components.day = calendar.component(.day, from: selectedDate) + 1
-        components.hour = 4
+        components.hour = WorkHours.bedtime.rawValue - WorkHours.start.rawValue
         endDate = calendar.date(from: components)
         
         let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
@@ -248,13 +258,13 @@ class CalendarViewModel: NSObject {
         components.year = calendar.component(.year, from: selectedDate)
         components.month = calendar.component(.month, from: selectedDate)
         components.day = calendar.component(.day, from: selectedDate) - 1
-        components.hour = 17
+        components.hour = WorkHours.start.rawValue
         components.minute = 0
         components.second = 0
         startDate = calendar.date(from: components)
         
         components.day = calendar.component(.day, from: selectedDate)
-        components.hour = 4
+        components.hour = WorkHours.bedtime.rawValue - WorkHours.start.rawValue
         endDate = calendar.date(from: components)
         
         let result = CoreDataAPI.sharedInstance.findWorks(startDate: startDate! as NSDate,
@@ -283,6 +293,7 @@ class CalendarViewModel: NSObject {
         var bedtimeDate: Date?
         var midnightDate: Date?
         var endDate: Date?
+        var totalHours = 0
         var startToBedtimePay = 0.0
         var bedtimeToMidnightPay = 0.0
         var midnightToEndPay = 0.0
@@ -290,23 +301,26 @@ class CalendarViewModel: NSObject {
         components.year = calendar.component(.year, from: selectedDate)
         components.month = calendar.component(.month, from: selectedDate)
         components.day = calendar.component(.day, from: selectedDate)
-        components.hour = 17
+        components.hour = WorkHours.start.rawValue
         components.minute = 0
         components.second = 0
         startDate = calendar.date(from: components)
         
-        hours = 4
+        hours = WorkHours.bedtime.rawValue - WorkHours.start.rawValue
+        totalHours = hours
         components.hour! += hours
         bedtimeDate = calendar.date(from: components)
         startToBedtimePay = Double(hours) * PayRate.startToBedtimeRate.rawValue
         
-        hours = 3
+        hours = WorkHours.midnight.rawValue - WorkHours.bedtime.rawValue
+        totalHours += hours
         components.day = calendar.component(.day, from: selectedDate) + 1
         components.hour = 0
         midnightDate = calendar.date(from: components)
         bedtimeToMidnightPay = Double(hours) * PayRate.bedtimeToMidnightRate.rawValue
         
-        hours = 4
+        hours = WorkHours.end.rawValue - 0
+        totalHours += hours
         components.hour! = hours
         endDate = calendar.date(from: components)
         midnightToEndPay = Double(hours) * PayRate.midnightToEndRate.rawValue
@@ -315,7 +329,6 @@ class CalendarViewModel: NSObject {
         // 9PM to 12 AM  = 3 * 8  = 24
         // 12AM to 4AM   = 4 * 16 = 64
         // total = 48 + 24 + 64   = 136
-        let totalHours = Int32(11)
         let totalPay = startToBedtimePay +
             bedtimeToMidnightPay +
             midnightToEndPay
@@ -327,7 +340,7 @@ class CalendarViewModel: NSObject {
                                             startToBedtimePay: startToBedtimePay,
                                             bedtimeToMidnightPay: bedtimeToMidnightPay,
                                             midnightToEndPay: midnightToEndPay,
-                                            totalHours: totalHours,
+                                            totalHours: Int32(totalHours),
                                             totalPay: totalPay)
     }
     
