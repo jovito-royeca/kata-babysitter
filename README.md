@@ -32,10 +32,15 @@ The user may toggle the `UIControlSwitch` to save/delete a Babysitting work. Tot
 When the app is restarted, saved Babysitting works should be displayed in the calendar.
 
 ## Cloning
-Clone the repository and open the Xcode workspace file. There is no need to fetch Cocoapod dependencies as they are already included in the repository.
+Open a Terminal and clone the repository. There is no need to fetch Cocoapod dependencies as they are already included in the repository.
 
 ```
 $git clone https://github.com/jovito-royeca/kata-babysitter.git
+```
+
+## Running
+Go to the directory where you cloned the repository. Open the Xcode workspace file. Once the Xcode workspace is opened, you may run the default scheme.
+```
 $cd kata-babysitter
 $open Babysitter.xcworkspace
 ```
