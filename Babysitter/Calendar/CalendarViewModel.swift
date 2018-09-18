@@ -104,13 +104,13 @@ class CalendarViewModel: NSObject {
                     enabled = true
                 }
             }
-        } else if hour >= 17 && hour <= 21 {
+        } else if hour >= 17 && hour < 21 {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     enabled = true
                 }
             }
-        } else if hour >= 21 && hour <= 23 {
+        } else if hour >= 21 && hour <= 24 {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     enabled = true
@@ -139,13 +139,13 @@ class CalendarViewModel: NSObject {
                     descriptionString = PayRate.midnightToEndRate.description
                 }
             }
-        } else if hour >= 17 && hour <= 21 {
+        } else if hour >= 17 && hour < 21 {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     descriptionString = PayRate.startToBedtimeRate.description
                 }
             }
-        } else if hour >= 21 && hour <= 23 {
+        } else if hour >= 21 && hour <= 24 {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     descriptionString = PayRate.bedtimeToMidnightRate.description
@@ -174,7 +174,7 @@ class CalendarViewModel: NSObject {
                     priceString = String(format: "$%.2f", PayRate.midnightToEndRate.rawValue)
                 }
             }
-        } else if hour >= 17 && hour <= 21 {
+        } else if hour >= 17 && hour < 21 {
             if work != nil && work?.startDate != nil {
                 if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
                     priceString = String(format: "$%.2f", PayRate.startToBedtimeRate.rawValue)
@@ -311,6 +311,10 @@ class CalendarViewModel: NSObject {
         endDate = calendar.date(from: components)
         midnightToEndPay = Double(hours) * PayRate.midnightToEndRate.rawValue
         
+        // 5PM to 9PM    = 4 * 12 = 48
+        // 9PM to 12 AM  = 3 * 8  = 24
+        // 12AM to 4AM   = 4 * 16 = 64
+        // total = 48 + 24 + 64   = 136
         let totalHours = Int32(11)
         let totalPay = startToBedtimePay +
             bedtimeToMidnightPay +

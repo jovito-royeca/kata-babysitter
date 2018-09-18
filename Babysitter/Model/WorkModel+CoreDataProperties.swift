@@ -18,7 +18,7 @@ extension WorkModel {
     }
 
     /*
-     * Bedtime usually set to 10PM.
+     * Bedtime usually set to 9PM.
      */
     @NSManaged public var bedtimeDate: NSDate?
     
@@ -38,12 +38,12 @@ extension WorkModel {
     @NSManaged public var totalPay: Double
     
     /*
-     * Pay charged from start (5PM) to bedtime (10PM)
+     * Pay charged from start (5PM) to bedtime (9PM)
      */
     @NSManaged public var startToBedtimePay: Double
     
     /*
-     * Pay charged from bedtime (10PM) to midnight (12AM)
+     * Pay charged from bedtime (9PM) to midnight (12AM)
      */
     @NSManaged public var bedtimeToMidnightPay: Double
     
