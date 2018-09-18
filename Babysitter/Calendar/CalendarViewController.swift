@@ -179,7 +179,7 @@ extension CalendarViewController : JKCalendarDataSource {
     
 }
 
-// MARK:
+// MARK: ActionTableViewCellDelegate
 extension CalendarViewController : ActionTableViewCellDelegate {
     func babysitToggled(on: Bool) {
         if on {
@@ -187,10 +187,29 @@ extension CalendarViewController : ActionTableViewCellDelegate {
             tableView.calendar.reloadData()
             tableView.reloadData()
         } else {
-            // TODO: add alert
-            viewModel.deleteWork()
-            tableView.calendar.reloadData()
-            tableView.reloadData()
+            let alertController = UIAlertController(title: "Alert",
+                                                    message: "Delete this Babysitting work from \(viewModel.dateString()) ?",
+                                                    preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete",
+                                             style: .destructive,
+                                             handler: { (action: UIAlertAction) in
+                self.viewModel.deleteWork()
+                self.tableView.calendar.reloadData()
+                self.tableView.reloadData()
+            })
+            
+            let cancelAction = UIAlertAction(title: "Cancel",
+                                             style: .cancel,
+                                             handler: { (action: UIAlertAction) in
+                self.tableView.reloadData()
+            })
+            
+            alertController.addAction(cancelAction)
+            alertController.addAction(deleteAction)
+            present(alertController,
+                    animated: true,
+                    completion: nil)
         }
     }
 }

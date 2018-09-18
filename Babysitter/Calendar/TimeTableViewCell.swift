@@ -45,30 +45,6 @@ class TimeTableViewCell: UITableViewCell {
         descriptionLabel.text = " "
         priceLabel.text = " "
         
-//        guard let work = work,
-//            let startDate = work.startDate,
-//            let date = date else {
-//            return
-//        }
-//
-//        let calendar = NSCalendar(identifier: .gregorian)!
-//        var components = DateComponents()
-//
-//        components.year = calendar.component(.year, from: startDate as Date)
-//        components.month = calendar.component(.month, from: startDate as Date)
-//        components.day = calendar.component(.day, from: startDate as Date)
-//        components.hour = 0
-//        components.minute = 0
-//        components.second = 0
-//        guard let newStartDate = calendar.date(from: components) else {
-//            return
-//        }
-//
-//        components.day = calendar.component(.day, from: date)
-//        guard let newDate = calendar.date(from: components) else {
-//            return
-//        }
-        
         guard let date = date,
             let newDate = getCleanDate(from: date) else {
             return
