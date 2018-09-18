@@ -8,8 +8,7 @@ target 'Babysitter' do
   # Pods for Babysitter
   pod 'DATASource'
   pod 'DATAStack'
-  pod 'Font-Awesome-Swift'#, :git => 'https://github.com/Vaberer/Font-Awesome-Swift', :branch => 'swift-3'
-  pod 'JKCalendar'
+  pod 'JKCalendar', '~> 1.0.5'
   pod 'Sync'
 
   target 'BabysitterTests' do

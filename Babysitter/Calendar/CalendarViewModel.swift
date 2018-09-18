@@ -58,6 +58,122 @@ class CalendarViewModel: NSObject {
         return "\(formatter.string(from: startDate!)) - \(formatter.string(from: endDate!))"
     }
     
+    func hourString(hour: Int) -> String {
+        return "\(hour == 0 ? 12 : (hour > 12 ? hour - 12 : hour)) \(hour >= 12 ? "PM" : "AM")"
+    }
+    
+    func hourEnabled(hour: Int) -> Bool {
+        let work = getWorkOnSelectedDate()
+        let previousWork = getPreviousWorkOnSelectedDate()
+        var enabled = false
+        
+        guard let newDate = getCleanDate(from: selectedDate) else {
+            return enabled
+        }
+        
+        
+        if hour > 0 && hour <= 4 {
+            if previousWork != nil && previousWork?.endDate != nil {
+                if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
+                    enabled = true
+                }
+            }
+        } else if hour >= 17 && hour <= 21 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    enabled = true
+                }
+            }
+        } else if hour >= 21 && hour <= 23 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    enabled = true
+                }
+            }
+        }
+        
+        return enabled
+    }
+    
+    func hourDescription(hour: Int) -> String {
+        let work = getWorkOnSelectedDate()
+        let previousWork = getPreviousWorkOnSelectedDate()
+        var descriptionString = " "
+        
+        guard let newDate = getCleanDate(from: selectedDate) else {
+            return descriptionString
+        }
+        
+        if hour > 0 && hour <= 4 {
+            if previousWork != nil && previousWork?.endDate != nil {
+                if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
+                    descriptionString = PayRate.midnightToEndRate.description
+                }
+            }
+        } else if hour >= 17 && hour <= 21 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    descriptionString = PayRate.startToBedtimeRate.description
+                }
+            }
+        } else if hour >= 21 && hour <= 23 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    descriptionString = PayRate.bedtimeToMidnightRate.description
+                }
+            }
+        }
+        
+        return descriptionString
+    }
+    
+    func hourPrice(hour: Int) -> String {
+        let work = getWorkOnSelectedDate()
+        let previousWork = getPreviousWorkOnSelectedDate()
+        var priceString = " "
+        
+        guard let newDate = getCleanDate(from: selectedDate) else {
+            return description
+        }
+        
+        if hour > 0 && hour <= 4 {
+            if previousWork != nil && previousWork?.endDate != nil {
+                if newDate.compare(getCleanDate(from: previousWork!.endDate! as Date)!) == .orderedSame {
+                    priceString = String(format: "$%.2f", PayRate.midnightToEndRate.rawValue)
+                }
+            }
+        } else if hour >= 17 && hour <= 21 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    priceString = String(format: "$%.2f", PayRate.startToBedtimeRate.rawValue)
+                }
+            }
+        } else if hour >= 21 && hour <= 23 {
+            if work != nil && work?.startDate != nil {
+                if newDate.compare(getCleanDate(from: work!.startDate! as Date)!) == .orderedSame {
+                    priceString = String(format: "$%.2f", PayRate.bedtimeToMidnightRate.rawValue)
+                }
+            }
+        }
+        
+        return priceString
+    }
+    
+    // MARK: Utility methods
+    func getCleanDate(from date: Date) -> Date? {
+        let calendar = NSCalendar(identifier: .gregorian)!
+        var components = DateComponents()
+        
+        components.year = calendar.component(.year, from: date)
+        components.month = calendar.component(.month, from: date)
+        components.day = calendar.component(.day, from: date)
+        components.hour = 0
+        components.minute = 0
+        components.second = 0
+        
+        return calendar.date(from: components)
+    }
+    
     // MARK: Database methods
     func getWorkOnSelectedDate() -> WorkModel? {
         let calendar = NSCalendar(identifier: .gregorian)!

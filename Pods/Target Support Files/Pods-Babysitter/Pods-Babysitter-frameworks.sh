@@ -145,7 +145,6 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DATAStack/DATAStack.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JKCalendar/JKCalendar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JKInfinitePageView/JKInfinitePageView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Sync/Sync.framework"
@@ -153,7 +152,6 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/DATASource/DATASource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/DATAStack/DATAStack.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Font-Awesome-Swift/Font_Awesome_Swift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JKCalendar/JKCalendar.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/JKInfinitePageView/JKInfinitePageView.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Sync/Sync.framework"

@@ -76,14 +76,12 @@ extension CalendarViewController : UITableViewDataSource {
             }
             
             let hour = indexPath.row
-            c.hour = hour
-            c.date = viewModel.selectedDate
-            c.work = work
-            c.previousWork = viewModel.getPreviousWorkOnSelectedDate()
-            c.updateDisplay()
+            c.timeLabel.text = viewModel.hourString(hour: hour)
+            c.bandView.backgroundColor = viewModel.hourEnabled(hour: hour) ? markColor : UIColor.clear
+            c.descriptionLabel.text = viewModel.hourDescription(hour: hour)
+            c.priceLabel.text = viewModel.hourPrice(hour: hour)
             cell = c
         }
-        
         
         return cell!
     }
