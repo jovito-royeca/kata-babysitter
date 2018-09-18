@@ -23,7 +23,7 @@ I want to calculate my nightly charge<br>*
 
 This is an iOS implementation using the MVVC design framework. The UI and user interaction are handled by the `CalendarViewController` (the View in the MVVC) and additional `UITableViewCell` subclasses, namely: `ActionTableViewCell` and `TimeTableViewCell`. 
 
-Business logic and data representation are handled by CalendarViewModel (the ViewModel in the MVVC). Core Data operations are delegated to the `CoreDataAPI` class.
+Business logic and data representation are handled by `CalendarViewModel` (the ViewModel in the MVVC). Core Data operations are delegated to the `CoreDataAPI` class.
 
 The `WorkModel` (`NSManagedObject` subclass) is the Model in the MVVC. It represents the nightly Babysitting work.
 
